@@ -44,40 +44,7 @@ class matrix():
             for i in self._height:
 
         else: print("list length doesnt match height of matrix")
-    
-    def parse_input(input_str):
-        stack = collections.deque()
-        small_stack = collections.deque()
-        input_str = "(" + input_str +")"
-        if check_parenthetical_elements(input_str):
-            change = True
-            index = 0
-            starting_index = 0
-            ending_index = 0
-            while change:
-                letter = input_str[index]
-                if letter == "(" or letter == "[" or letter == "{":
-                    small_stack.clear()
-                    starting_index = index
-                if letter == ")" or letter == "]" or letter == "}":
-                    
-                    ending_index = index
-        #empty bool
-        #append and pop 
-        #check for (3-5)(7-5)
-
-    # example input 
-    "((5-3)/3)"
-    def check_parenthetical_elements(in_str)
-        counter = 0
-        for i in range(len(in_str)):
-            letter = in_str[i]
-            if letter == "(" or letter == "[" or letter == "{": counter+=1
-            if letter == ")" or letter == "]" or letter == "}": counter-=1
-        if counter == 0:
-            return True
-        return False
-
+   
     def LUdecompositions():
         pass
 
