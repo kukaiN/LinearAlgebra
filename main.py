@@ -4,13 +4,17 @@ import pandas as pd
 import numpy as np
 import pickle
 import itertools
+import collections
 
 class matrix():
     def __init__(self, x=2, y=2): # initiate matrix
         self._height = y
         self._width = x
-        self._matrix = pd.DataFrame(np.zeros((3*x,y)))
-        self._square = False
+        self._matrix_RealNum = pd.DataFrame(np.zeros((x, y)))
+        self._matrix_RealDen = pd.DataFrame(np.ones((x, y)))
+        self._matrix_ImgNum = pd.DataFrame(np.zeros((x, y)))
+        self._matrix_ImgDen = pd.DataFrame(np.ones((x, y)))
+        self._square = True if x == y else False
         self._augmented = False
         self._fractions = False
         self._complexValues = False
@@ -19,12 +23,10 @@ class matrix():
         self._height = height
         self._width = width
         self._width = True if height == width else False
-    
-    def zero_matrix(self):
-        
 
     def identity_matrix(self):
-        if self._height == self._width: 
+        if self._height == self._width:
+            self._matrix = 
 
     def modify_entry(self, i, j, value):
         if x < self._width and y < self._height and 0 < x and 0 < y:
@@ -43,6 +45,39 @@ class matrix():
 
         else: print("list length doesnt match height of matrix")
     
+    def parse_input(input_str):
+        stack = collections.deque()
+        small_stack = collections.deque()
+        input_str = "(" + input_str +")"
+        if check_parenthetical_elements(input_str):
+            change = True
+            index = 0
+            starting_index = 0
+            ending_index = 0
+            while change:
+                letter = input_str[index]
+                if letter == "(" or letter == "[" or letter == "{":
+                    small_stack.clear()
+                    starting_index = index
+                if letter == ")" or letter == "]" or letter == "}":
+                    
+                    ending_index = index
+        #empty bool
+        #append and pop 
+        #check for (3-5)(7-5)
+
+    # example input 
+    "((5-3)/3)"
+    def check_parenthetical_elements(in_str)
+        counter = 0
+        for i in range(len(in_str)):
+            letter = in_str[i]
+            if letter == "(" or letter == "[" or letter == "{": counter+=1
+            if letter == ")" or letter == "]" or letter == "}": counter-=1
+        if counter == 0:
+            return True
+        return False
+
     def LUdecompositions():
         pass
 
