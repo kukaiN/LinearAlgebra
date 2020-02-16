@@ -1,17 +1,19 @@
+import collections
+import os
+import time
+import sys
+
+import random
+import string 
+
+from collections import Counter 
+
 inp = "(1 + 4) / 5 * 10"
 #print(int(inp))
 
-add = "+"
-minus = "-"
-divide = "/"
-times = "*"
-mod = "%"
-remainder = "//"
-power1 = "**"
-power2 = "^"
 
 def parse_input(input_str):
-    stack = collections.deque()
+    #stack = collections.deque()
     small_stack = collections.deque()
     input_str = "(" + normalize_expression(input_str) +")"
     if check_parenthetical_elements(input_str):
@@ -29,34 +31,25 @@ def parse_input(input_str):
                 for i in range(starting_index, ending_index+1):
                     pass     
 
-def normalize_expression(in_str):
-    
-    new_str = in_str
-    print("rtecieved", new_str)
-    length = len(new_str)
-    current_index, next_char = 1, new_str[1]
-    if length > 1:
-        print(current_index, length)
-        while current_index < length:
-            print('loop')
-            current_char, next_char = next_char, new_str[current_index]
-            if (current_char == ")" or current_char == "]") and (current_char == "(" or current_char == "["):
-                print(current_char, next_char)
-                new_str = new_str[:current_index] + "*" + new_str[(current_index+1):] 
-                length+=1
-                current_index-=4
-            current_index+=1
-    return new_str
-
-def check_parenthetical_elements(in_str):
-    counter = 0
-    for i in range(len(in_str)):
-        letter = in_str[i]
-        if letter == "(" or letter == "[" or letter == "{": counter+=1
-        if letter == ")" or letter == "]" or letter == "}": counter-=1
-    if counter == 0:
-        return True
-    return False
 
 
-print(normalize_expression("(11*)(1)(1)()()()"))
+
+
+"""
+t1 = time.time()
+N = 1000000
+sentence = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(N))
+t2=time.time()
+print("took this much to make word: ", t2-t1)
+print(sentence[:100])
+
+x = Counter(sentence)['E']
+t3 = time.time()
+print(x) #0.05
+print("first method: ", t3-t2)
+
+count = sum(map(lambda x : 1 if 'E' in x else 0, sentence)) 
+t4=time.time()
+print(count)#0.12
+print("second method: ", t4-t3)
+"""
