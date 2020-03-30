@@ -6,6 +6,38 @@ import pickle
 import itertools
 import collections
 
+
+def matrix_pow(matrix_a, power):
+    """matrix multiplication have the associative property, A(BC) == (AB)C"""
+    if power < 2: return matrix_a
+    else:
+        m_product = matrix_pow(matrix_a, int(power/2))
+        m_product = matrix_mul(m_product, m_product)
+        if power&1:
+            m_product = matrix_mul(m_product, matrix_a)
+        return m_product
+
+def matrix_mul(matrix_a, matrix_b):
+        """first check the dimension of the two matrix, then do matrix multiplication, dot product """
+        a_row, a_column = len(matrix_a), len(matrix_a[0])
+        b_row, b_column = len(matrix_b), len(matrix_b[0])
+        if a_column == b_row:
+            new_matrix = [[0 for _ in range(b_column)] for _ in range(a_row)]
+            for r_index in range(a_row):
+                for c_index in range(b_column):
+                    new_matrix[r_index][c_index] = dot_product([a for a in matrix_a[r_index]], [matrix_b[idx][c_index] for idx in range(b_row)])
+        return new_matrix
+
+def dot_product(list_a, list_b):
+    """ hand made dot product, self-explanitory"""
+    return sum([a*b for a, b in zip(list_a, list_b)])
+
+def matrix_mul_np(a, b):
+    if len(a[0]) == len(b):
+        matrix_a, matrix_b = np.array(a), np.array(b)
+        return matrix_a.dot(matrix_b)
+
+
 class matrix():
     def __init__(self, x=2, y=2): # initiate matrix
         self._height = y
