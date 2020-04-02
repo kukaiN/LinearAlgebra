@@ -1,14 +1,13 @@
 
-# comming soon
 
-def solve_using_characteristic_polynomial(polynomial_func):
+## comming soon
+
+
+
+
+def crammers_rule():
     pass
 
-def eigendecomposition(matrix_a, n):
-    pass
 
-def singular_value_decomposition(matrix_a, n):
-    pass
-
-def Lanczos_algorithm(matrix_a, n):
+def cofactor_expansion():
     pass
