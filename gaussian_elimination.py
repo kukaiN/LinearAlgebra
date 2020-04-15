@@ -18,7 +18,7 @@ def gaussian_elimination(matrix_A, augmented=True, RREF=True):
 def gaussian_elimination_return_transformation(matrix_A, augmented=True, RREF=True):
     transformation = []
     # modify matrix
-
+    matrix_A = [[fractions.fractions(value) for value in row] for row in matrix_A]
     if augmented:
         for i in range(len(matrix_A)):
             # row reduction 
