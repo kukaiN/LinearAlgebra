@@ -44,7 +44,7 @@ def general_form_solution(p, q):
 
 
 class Markov_chain:
-    def __init__(self, matrix=[[1,0], [0, 1]])
+    def __init__(self, matrix=[[1,0], [0, 1]], output_space = )
         self.matrix = matrix
 
     def get_type(self):
