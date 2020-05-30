@@ -10,6 +10,13 @@ Linear algebra algorithms and programs made with python
 
  - many topics in linear algebra overlaps with topics in discrete math, so if an algorithm is not in this repo, check the discrete math repo to check if its not there.
 
+
+## group plans:
+- first finish the basic programs:
+    - determinants, eigenvalues
+    - versions of the code above that deals with complex matrices
+
+
 ## Table of contents
 - [general](#general)
     - [Dependencies](#depen)
@@ -17,8 +24,22 @@ Linear algebra algorithms and programs made with python
 - [description of files](#info)
 - 
 
-
-
+# Grouping of code
+- Math syntax parser
+- simple, fundamental code: 
+    - determinats and eigenvalues
+    - gaussian elimination
+- markov chains
+    - diff. equation solver
+    - population models
+    - random walks
+- decompositions
+    - LU and QR methods
+- linear transformation and things related to vector space
+- files to work on for FUN
+    - computer graphic
+    - fractals
+    - electrical circuits
 
 ---
 <a id = "general"></a> 
