@@ -14,8 +14,7 @@ def gaussian_elimination(matrix_A, augmented=False, square_matrix=True, RREF=Tru
     for pivot_ij in range(row_num):
         current_pivot = matrix_A[pivot_ij][pivot_ij]
         pivot_num, pivot_denom = current_pivot.numerator, current_pivot.denominator
-        flipped_pivot = fractions.Fraction(numerator=pivot_denom, denominator=pivot_nu
-        m)
+        flipped_pivot = fractions.Fraction(numerator=pivot_denom, denominator=pivot_num)
         for j in range(pivot_ij, col_len):
             matrix_A[pivot_ij][j]*=flipped_pivot
     if square_matrix == False or RREF == False: # return REF (not unique)
@@ -23,9 +22,17 @@ def gaussian_elimination(matrix_A, augmented=False, square_matrix=True, RREF=Tru
     
     # backward elimination
 
-    for pivot_ij in reversed(range(1, row_num)):
-        for col_index in range(pivot_ij, row_num):
-            next_to_pivot = 
+    for pivot_ij in reversed(range(0, row_num)):
+        for row_index in reversed(range(0, pivot_ij)):
+            print(pivot_ij, row_index)
+            curr_row = matrix_A[pivot_ij]
+            non_zero = matrix_A[row_index][pivot_ij]
+            if non_zero != 0:
+                numer, denom = non_zero.numerator, non_zero.denominator
+                flipped_row = matrix_A[pivot_ij]
+                for j in range(pivot_ij+1, col_len):
+                    matrix_A[pivot_ij][j]+=-flipped_row[j]
+
 
 
     return matrix_A
